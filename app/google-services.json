@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "183079933193",
+    "project_id": "enrollment-341311",
+    "storage_bucket": "enrollment-341311.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183079933193:android:dc9e9092c9b52db4c86fd8",
+        "android_client_info": {
+          "package_name": "org.wit.m"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183079933193-q8nvrctc7sem3884l24oopilj493s62n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM-zEKHOJEqFWVXWB8qVjVFjtL4sKrJYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "183079933193-q8nvrctc7sem3884l24oopilj493s62n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

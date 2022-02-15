@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
- val button = findViewById<Button>(R.id.button)
+        val button = findViewById<Button>(R.id.button)
         // set on-click listener
         button.setOnClickListener {
             Intent(this, LoginActivity::class.java).also {
@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
-
 
 
     }

@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class EnrollmentFormViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
+        value = "Please fill out the form to enroll you Son/Daughter in First year"
     }
     val text: LiveData<String> = _text
 }
