@@ -13,8 +13,8 @@
             android:icon="@drawable/ic_menu_enrollment"
             android:title="@string/menu_enrollmentForm" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_schoollist"
+            android:icon="@drawable/ic_menu_schoollist"
+            android:title="schoollist" />
     </group>
 </menu>
