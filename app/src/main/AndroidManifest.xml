@@ -16,9 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.M">
-        <activity
-            android:name=".ListActivity"
-            android:exported="true" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -30,7 +28,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAOiD0w22sNeFCtS5Oav1I9kN7A4giWRhg" />
-
+        <activity
+            android:name=".ListActivity"
+            android:exported="true"
+            android:label="ListActivity"/>
         <activity
             android:name=".MapsActivity"
             android:exported="true"

@@ -2,12 +2,14 @@ package org.wit.m
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import org.wit.m.databinding.ActivityMapsBinding
 
@@ -45,4 +47,24 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
+
+    internal inner class InfoWindowActivity : AppCompatActivity(),
+        GoogleMap.OnInfoWindowClickListener,
+        OnMapReadyCallback {
+        override fun onMapReady(googleMap: GoogleMap) {
+            // Add markers to the map and do other map setup.
+            // ...
+            // Set a listener for info window events.
+            googleMap.setOnInfoWindowClickListener(this)
+        }
+
+        override fun onInfoWindowClick(marker: Marker) {
+            Toast.makeText(
+                this, "Info window clicked",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+
 }

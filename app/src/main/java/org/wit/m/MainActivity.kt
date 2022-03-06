@@ -1,9 +1,11 @@
 package org.wit.m
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.widget.Button
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -13,6 +15,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import org.wit.m.databinding.ActivityMainBinding
 import org.wit.m.ui.login.LoginActivity
 
@@ -30,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Notification", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
@@ -60,8 +63,36 @@ class MainActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
+        val button4 = findViewById<Button>(R.id.button4)
+        // set on-click listener
+        button4.setOnClickListener {
+            Intent(this, ListActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+        val locationPermissionRequest = registerForActivityResult(
+            ActivityResultContracts.RequestMultiplePermissions()
+        ) { permissions ->
+            when {
+                permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
+                    // Precise location access granted.
+                }
+                permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
+                    // Only approximate location access granted.
+                } else -> {
+                // No location access granted.
+            }
+            }
+        }
 
+// ...
 
+// Before you perform the actual permission request, check whether your app
+// already has the permissions, and whether your app needs to show a permission
+// rationale dialog. For more details, see Request permissions.
+        locationPermissionRequest.launch(arrayOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
