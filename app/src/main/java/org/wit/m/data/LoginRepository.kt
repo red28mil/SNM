@@ -1,5 +1,6 @@
 package org.wit.m.data
 
+import com.google.firebase.auth.FirebaseAuth
 import org.wit.m.data.model.LoggedInUser
 
 /**
@@ -27,6 +28,7 @@ class LoginRepository(val dataSource: LoginDataSource) {
         dataSource.logout()
     }
 
+
     fun login(username: String, password: String): Result<LoggedInUser> {
         // handle login
         val result = dataSource.login(username, password)
@@ -43,4 +45,5 @@ class LoginRepository(val dataSource: LoginDataSource) {
         // If user credentials will be cached in local storage, it is recommended it be encrypted
         // @see https://developer.android.com/training/articles/keystore
     }
+
 }
