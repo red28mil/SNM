@@ -140,6 +140,7 @@ class MainActivity : AppCompatActivity() {
         button5.setOnClickListener {
             requestPermission()
         }
+
         //for google
         fun googleAuthForFirebase(account: GoogleSignInAccount){
             val credentials = GoogleAuthProvider.getCredential(account.idToken,null)
