@@ -6,6 +6,7 @@ data class FormData(
     var age: String ="",
     var sex: String="",
     var address: String="",
+    var childName: String="",
 
 
     )

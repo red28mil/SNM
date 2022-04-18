@@ -23,6 +23,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import org.wit.m.R.*
+import org.wit.m.R.id.school
 import org.wit.m.databinding.ActivityMapsBinding
 import org.wit.m.ui.login.LoginActivity
 import java.lang.StringBuilder
@@ -50,11 +52,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -68,10 +73,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         //mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
 
         //  mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-    }
+
+        val school = findViewById<ImageButton>(school)
+        // set on-click listener
+        school.setOnClickListener {
+           // item -> when(){
+            //    R.id.school -> nearByPlace("school")
+
+            }
 
 
+            Intent(this, ListActivity::class.java).also {
+               startActivity(it)
+            }
+        }
 
+   // }
+//private fun nearByPlace(typePlace: String){
+
+//}
 
 
 

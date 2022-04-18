@@ -110,7 +110,9 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUiWithUser(model: LoggedInUserView) {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName
-        // TODO : initiate successful logged in experience
+        val currentUser = auth.currentUser
+        updateUi(currentUser)
+
         Toast.makeText(
             applicationContext,
             "$welcome $displayName",
