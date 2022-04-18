@@ -15,6 +15,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import org.wit.m.databinding.ActivityLoginBinding
@@ -125,11 +126,17 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        //updateUi(currentUser)
+        updateUi(currentUser)
+
+
     }
 
-}
+    private fun updateUi(currentUser: FirebaseUser?) {
 
+    }
+
+
+}
 /**
  * Extension function to simplify setting an afterTextChanged action to EditText components.
  */
@@ -143,4 +150,5 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
 
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
     })
+    Firebase.auth.signOut()
 }
