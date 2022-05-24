@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.wit.m">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -15,20 +16,22 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.M">
+        android:theme="@style/Theme.M"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".LogoutActivity"
+            android:exported="false" />
         <activity
             android:name=".FormActivity"
-            android:exported="false" />
-
+            android:exported="true" />
         <activity
             android:name=".NoteActivity"
-            android:exported="false" />
+            android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

@@ -38,31 +38,9 @@ class FormActivity : AppCompatActivity() {
             val FormData = FormData("name", "age", "sex", "address", "child name")
             saveFormData(FormData)
         }
-
-        val btnRetrieveData = findViewById<Button>(R.id.btnUploadData)
-        btnRetrieveData.setOnClickListener {
-            retrieveFormData()
-
-        }
     }
-    private fun retrieveFormData() = CoroutineScope(Dispatchers.IO).launch {
-    try {
-        val querySnapshot = formDataCollectionRef.get()
 
-        val sb = StringBuilder()
-         for (document in querySnapshot.result) {
-            val FormData = document.toObject<FormData>()
-            sb.append("$FormData\n")
-        }
-            withContext(Dispatchers.Main) {
-           // = sb.toString()
-        }
-            } catch (e: Exception) {
-            withContext(Dispatchers.Main) {
-            Toast.makeText(this@FormActivity, e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
+
         private fun saveFormData(formData: FormData) = CoroutineScope(Dispatchers.IO).launch {
             try {
                 formDataCollectionRef.add(formData)

@@ -35,6 +35,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.*
+import org.wit.m.data.LoginRepository
 import org.wit.m.databinding.ActivityMainBinding
 import org.wit.m.ui.login.LoginActivity
 import java.lang.Exception
@@ -125,7 +126,7 @@ class MainActivity : AppCompatActivity() {
         val logout = findViewById<Button>(R.id.logout)
         // set on-click listener
         logout.setOnClickListener {
-            Intent(this, NoteActivity::class.java).also {
+            Intent(this, LogoutActivity::class.java).also {
                 startActivity(it)
             }
         }
@@ -299,6 +300,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 }
+
+
+
+
 
 
 

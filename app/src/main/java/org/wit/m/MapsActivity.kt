@@ -1,5 +1,6 @@
 package org.wit.m
 
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -13,6 +14,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import com.google.android.gms.common.api.Status
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationServices
@@ -59,7 +61,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
 
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -77,27 +78,28 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         val school = findViewById<ImageButton>(school)
         // set on-click listener
         school.setOnClickListener {
-           // item -> when(){
+            // item -> when(){
             //    R.id.school -> nearByPlace("school")
-
-            }
 
 
             Intent(this, ListActivity::class.java).also {
-               startActivity(it)
+                startActivity(it)
             }
         }
 
-   // }
+    }
 //private fun nearByPlace(typePlace: String){
 
 //}
 
 
-
         private fun setUpMap() {
-            if (ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                )
+                != PackageManager.PERMISSION_GRANTED
+            ) {
 
                 ActivityCompat.requestPermissions(
                     this,
@@ -116,28 +118,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 }
             }
         }
-            private fun placeMarkerOnMap(currentLatLng: LatLng) {
-                val markerOptions = MarkerOptions().position(currentLatLng)
-                 markerOptions.title("$currentLatLng")
-                mMap.addMarker(markerOptions)
-            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        private fun placeMarkerOnMap(currentLatLng: LatLng) {
+            val markerOptions = MarkerOptions().position(currentLatLng)
+            markerOptions.title("$currentLatLng")
+            mMap.addMarker(markerOptions)
+        }
 
 
 

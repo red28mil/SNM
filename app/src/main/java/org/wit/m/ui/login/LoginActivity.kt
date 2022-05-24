@@ -115,7 +115,7 @@ class LoginActivity : AppCompatActivity() {
 
         Toast.makeText(
             applicationContext,
-            "$welcome $displayName",
+            "$welcome",
             Toast.LENGTH_LONG
         ).show()
     }
@@ -152,5 +152,5 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
 
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
     })
-    Firebase.auth.signOut()
+
 }
